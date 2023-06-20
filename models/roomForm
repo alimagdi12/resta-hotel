@@ -1,0 +1,37 @@
+const fs = require('fs');
+const path = require('path');
+const util = require('../util/path')
+
+module.exports = class Rooms {
+    constructor(checkIn,checkOut,adults,children){
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.adults = adults;
+        this.children = children; 
+
+    }
+
+    save(){
+        const p = path.join(util,'data','roomForm.json');
+        fs.readFile(p,(err,filecontent)=>{
+            let rooms = [];
+            if(!err){
+                rooms = JSON.parse(filecontent)
+            }
+            rooms.push(this);
+            fs.writeFile(p,JSON.stringify(rooms),err=>{
+                    console.log(err)
+            })
+        })
+
+    }
+    static fetchAll(cb){
+        const p = path.join(util, 'data','roomForm.json');
+        fs.readFile(p,(err,filecontent)=>{
+            if(err){
+                return cb([]);
+            }
+            cb(JSON.parse(filecontent))
+        })
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title> Resta-Hotel </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!--  nav bar  -->
+
+
+    <%- include('../includes/navigation.ejs') %>
+
+
+
+
+
+<section class="bg-img" style="background-image: url(img/bg-img/bg-6.jpg);display: flex; align-items: center;justify-content: center;width: 100%;height: 500px; margin-top: -160px;">
+    <h2>Rooms</h2>
+</section>
+
+
+
+
+
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <!-- <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/bg-6.jpg);">
+        <div class="bradcumbContent">
+            <h2>Rooms</h2>
+        </div>
+    </section> -->
+    <!-- ##### Breadcumb Area End ##### -->
+
+
+
+    <!-- ##### Rooms Area Start ##### -->
+    <section class="rooms-area section-padding-100-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="section-heading text-center">
+                        <div class="line-"></div>
+                        <h2>Choose a room</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <% if (room.length > 0) { %>
+                    <% for (let rooms of room) { %>
+
+                <!-- Single Rooms Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Thumbnail -->
+                        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/1.jpg);"></div>
+                        <!-- Price -->
+                        <p class="price-from">From <%= rooms.price %>/night</p>
+                        <!-- Rooms Text -->
+                        <div class="rooms-text">
+                            <div class="line"></div>
+                            <h4><%= rooms.title %></h4>
+                            <p><%= rooms.description %></p>
+                        </div>
+                        <!-- Book Room -->
+                        <a href="/Reservation" class="book-room-btn btn palatin-btn">Book Room</a>
+                    </div>
+                </div>
+
+                
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Rooms Area End ##### -->
+
+
+<!--   footer   -->
+
+<%- include('../includes/footer.ejs')  %>   
+
+
+
+
+
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</body>
+
+</html>

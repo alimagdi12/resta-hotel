@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+
+
+    <!-- ##### Rooms Area Start ##### -->
+    <section class="rooms-area "style="margin-top:200px;">
+        <div class="container">
+            
+            <div class="row justify-content-center">
+                <% if (room.length > 0) { %>
+                    <% for (let rooms of room) { %>
+
+                <!-- Single Rooms Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Thumbnail -->
+                        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/1.jpg);"></div>
+                        <!-- Price -->
+                        <p class="price-from">From <%= rooms.price %>/night</p>
+                        <!-- Rooms Text -->
+                        <div class="rooms-text">
+                            <div class="line"></div>
+                            <h4><%= rooms.title %></h4>
+                            <p><%= rooms.description %></p>
+
+                        </div>
+                        <!-- Book Room -->
+                     
+                    </div>
+                    <div style="display: flex;">
+                        <a href="/admin/edit-rooms/<%= rooms.id %>?edit=true" class="book-room-btn btn palatin-btn"  style="margin-top: 50px;">Edit</a>
+                        <form action="/admin/delete-room" method="POST" >
+                            <input type="hidden" value="<%= rooms.id  %>" name="roomId">
+                            <button class="book-room-btn btn palatin-btn" type="submit">Delete</button>
+                        </form>
+                        </div>
+                </div>
+
+                
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Rooms Area End ##### -->

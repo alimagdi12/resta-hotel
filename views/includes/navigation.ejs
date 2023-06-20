@@ -1,0 +1,238 @@
+<style>* {
+    box-sizing: border-box;
+  }
+  .nav{
+    display: flex;
+    text-align: center;
+    height: 150px;
+    background-color: none  ;
+
+  }
+  img{
+    width: 150px;
+    height: auto;
+    
+  }
+  .nav-links{
+margin: auto;
+  }
+  .nav > .nav-links > .classynav{
+    display: flex;
+  }    
+  .nav > #nav-check {
+    display: none;
+  }
+
+  .nav > .nav-links > .classynav > ul > li >.active > a > {
+    color: #ffffff;
+    background-color: #cb8670;
+    font-size: 14px;
+    padding: 0 12px;
+    display: block;
+    height: 35px;
+    line-height: 34px;
+  }
+
+  @media (max-width:600px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+  </style>
+
+
+<!-- <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <a href="/" class="nav-brand"><img src="./R-IMG/download.png" alt="" ></a>
+
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+      <div class="classynav">
+        <ul>
+            <li class="active"><a href="../">Home</a></li>
+            <li><a href="/room">Rooms</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/news">News</a></li> 
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul> -->
+
+        <!-- Button -->
+        <!-- <div class="menu-btn" >
+            <a href="/reservation" class="det-btn" style="display: flex; justify-content: center; align-items: center;" >Make a Reservation</a>
+        </div>
+
+    </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+  <header class="header-area">
+    <!-- Navbar Area -->
+    <div class="palatin-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="palatinNav">
+
+                    <!-- Nav brand -->
+                    <a href="/" class="nav-brand"><img src="./R-IMG/download.png" alt="" 
+                        style="width: 150px; "></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                   
+                        <!-- close btn -->
+                        <!-- <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div> -->
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="active"><a href="/">Home</a></li>
+                                <li><a href="/room">Rooms</a></li>
+                                <li><a href="/about">About us</a></li>
+                                <li><a href="/news">News</a></li> 
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+
+                            <!-- Button -->
+                            <div class="menu-btn" >
+                                <a href="/reservation" class="det-btn" style="display: flex; justify-content: center; align-items: center;" >Make a Reservation</a>
+                            </div>
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ##### Header Area Start ##### -->
+<!-- <header class="header-area"> -->
+    <!-- Navbar Area -->
+    <!-- <div class="palatin-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container"> -->
+                <!-- Menu -->
+                <!-- <nav class="classy-navbar justify-content-between" id="palatinNav"> -->
+
+                    <!-- Nav brand -->
+                    <!-- <a href="index.html" class="nav-brand"><img src="./R-IMG/download.png" alt=""  -->
+                        <!-- style="width: 150px; "></a> -->
+
+                    <!-- Navbar Toggler -->
+                    <!-- <div class="classy-navbar-toggler"> -->
+                        <!-- <span class="navbarToggler"><span></span><span></span><span></span></span> -->
+                    <!-- </div> -->
+
+                   
+                        <!-- close btn -->
+                        <!-- <div class="classycloseIcon"> -->
+                            <!-- <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div> -->
+                        <!-- </div> -->
+
+                        <!-- Nav Start -->
+                        <!-- <div class="classynav" > -->
+                            <!-- <ul> -->
+                                <!-- <li class="active"><a href="../">Home</a></li>
+                                <li><a href="/Reservation">Reservation</a></li>
+                                <li><a href="/room">Rooms</a></li>
+                                <li><a href="/about">About us</a></li>
+                                <li><a href="/news">News</a></li> 
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul> -->
+
+                            <!-- Button -->
+                            <!-- <div class="menu-btn">
+                                <a href="/reservation" class="btn palatin-btn">Make a Reservation</a>
+                            </div>
+
+                        </div> -->
+                        <!-- Nav End -->
+                    <!-- </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header> -->
+<!-- ##### Header Area End ##### -->

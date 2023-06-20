@@ -1,0 +1,456 @@
+<%- include('../includes/head.ejs') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+    body{
+        background-color: #000104;
+width: 100%;
+
+    }
+    /* Import Google Font */
+@import url(https://fonts.googleapis.com/css?family=Nunito+Sans);
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* STYLING */
+.form-div{
+    margin: auto;
+}
+h4{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #2a2a2a;
+    font-weight: 700;
+}
+em{
+    font-style: normal;
+    color: #cb8670;
+}
+.container {
+    margin-right: 30px;
+    margin-left: 200px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #a2a2a2;
+    font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+}
+.darkmode .container {
+    background-color: #1A1B1F;
+    color: #8a8a8a;
+}
+.tabs-container { 
+    width: 540px;
+    max-width: 620px; 
+    min-width: 420px;
+    margin: auto;
+}
+
+/* Style the tabs */
+.tabs {
+    margin-bottom: 28px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs a {
+    cursor: pointer;
+    padding: 12px 24px;
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 18px;
+    transition: background 0.1s, color 0.1s;
+    background: linear-gradient(145deg, #ffffff, #dcdcdc);
+    box-shadow:  3px 3px 5px #bebebe, 
+                 -3px -3px 5px #ffffff;
+                   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.darkmode .tabs a {
+    background: linear-gradient(145deg, #1c1d21, #17181c);
+    box-shadow:  3px 3px 6px #101114, 
+                 -3px -3px 6px #24252a;
+}
+
+/* Change background color of tabs on hover */
+.tabs a:hover {
+    background: linear-gradient(145deg, #f4f4f4, #cecece);
+    color: #888;
+}
+.darkmode .tabs a:hover {
+    background: #141414;
+    color: #bbb;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+    background-color: #f4f4f4;
+    color: #bdbdbd;
+    cursor: default;
+    padding: 14px 22px 10px 26px;
+    background: #f4f4f4;
+    box-shadow: inset 3px 3px 5px #cbcbcb, 
+                inset -3px -3px 5px #ffffff;
+}
+.darkmode .tabs a.active {
+    background: #1A1B1F;
+    box-shadow: inset  3px 3px 6px #101114, 
+                inset -3px -3px 6px #24252a; 
+    color: #6a6a6a;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+    padding: 46px;
+    min-height: 288px;
+    display: none;    
+    border-radius: 18px;
+    background: #f4f4f4;
+    box-shadow:  3px 3px 6px #bebebe, 
+                 -3px -3px 6px #ffffff;
+                 
+}
+.darkmode .tabcontent {
+    background: linear-gradient(145deg, #1c1d21, #17181c);
+    box-shadow:  3px 3px 6px #101114, 
+                 -3px -3px 6px #24252a;
+}
+.content .active {
+    display: block;
+}
+.tabcontent p {
+    margin-bottom: 12px;
+}
+.tabcontent p:last-child {
+    margin-bottom: 0;
+}
+.tabcontent .read-more-link a {
+    color: #626262;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.darkmode .tabcontent .read-more-link a {
+    color: #d4d4d4;
+}
+.icon {
+    padding-left: 8px;
+    font-size: 16px;
+}
+
+/* THE DARKMODE SWITCH */ 
+.dark-mode-switch {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+} 
+.dark-mode-switch .switch {
+    margin-left: 4px;
+} 
+.switch-label {
+    cursor: pointer;
+    font-size: 0.85em;
+}
+/* the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    margin-left: 4px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1A1B1F;
+    transition: .2s;
+    box-shadow:  2px 2px 3px #ffffff, 
+                 -2px -2px 3px #bebebe;
+}
+.darkmode .slider {
+    box-shadow:  2px 2px 3px #34353a, 
+                 -2px -2px 3px #000104;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+    background: #9294b8;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #f4f4f4;
+}
+input:checked + .slider:before {
+    transform: translateX(21px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 11px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+/*==============================*/
+.small-screen {
+    display: none;
+    background-color: #f4f4f4;
+    height: 100vh;
+    color: #a2a2a2;
+    font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+}
+.darkmode .small-screen {
+    background-color: #1A1B1F; 
+    color: #8a8a8a;
+}
+.small-screen-content {
+    width: 70%;
+    margin: auto;
+}
+@media only screen and (max-width: 600px) {
+    .container {
+        display: none;
+    }
+    .small-screen {
+        display: flex;
+    }
+    .tabcontent {
+        display: block;
+    }
+}
+</style>
+
+
+
+
+  <div id="container" class="container">
+    <div id="tabs" class="tabs-container">
+
+        <div class="tabs">
+            <a id="tab2" data-tab="2" class="tab">news</a>
+            <a id="tab3" data-tab="3" class="tab">Rooms</a>
+            <a id="tab4" data-tab="4" class="tab">Edit/Delete</a>
+        </div>
+
+        <div class="content">
+            
+            <div id="tabcontent2" data-tab="2" class="tabcontent">
+                <div class="col-lg-6 form-div">
+                    <form action="/news" method="POST" class="form-admin">
+                        <h4> Add a <em> news </em>from <em>here</em></h4>
+                        <div class="col-md-6 form-group">
+                        <label for="" class="form-label">image</label>
+                        <input  style="width: 250px;" type="text" name="image" class="form-control form-input"></input>
+                        </div>
+                
+                        <div class="col-md-6 form-group">
+                        <label for="" class="form-label">date</label>
+                        <input  style="width: 250px;"    type="date" name="date" class="form-control form-input">
+                        </div>
+                
+                        <div class="col-md-6 form-group">
+                        <label for="" class="form-label">title</label>
+                        <input  style="width: 250px;"    name="title" id="" class="form-control form-input">
+                        </div>
+                
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label">category</label>
+                            <input   style="width: 250px;"    name="category" id="" class="form-control form-input">
+                        </div>
+                    
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label">comment</label>
+                            <input  style="width: 250px;"    name="comment" id="" class="form-control form-input">
+                        </div>
+                
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label">description</label>
+                            <input    style="width: 250px;"     name="description" id="" class="form-control form-input">
+                        </div>
+                
+                
+                        <button type="submit" class="main-button">submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="tabcontent3" data-tab="3" class="tabcontent">
+                <div class="col-lg-6 form-div" >
+                    <form action="/admin/<% if (editing){ %>edit-rooms<% } else { %>add-rooms<% } %>" method="POST" class="form-admin">
+                        <div class="title ">
+                            <h4> Add a <em> room </em>from <em>here</em></h4>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label">price</label>
+                            <input  style="width: 250px;"   type="text" name="price" class="form-control " value="<% if (editing) { %><%= room.price %><% } %>">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label">title</label>
+                            <input  style="width: 250px;"       type="text" name="title" class="form-control" value="<% if (editing) { %><%= room.title %><% } %>">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="" class="form-label" >description</label>
+                            <textarea name="description" id="" cols="30" rows="10" class="form-control2" value="<% if (editing) { %><%= room.description %><% } %>"></textarea>
+                        </div>
+                        <% if(editing){ %>
+                        <input type="hidden" value="<%= room.id  %>" name="roomId">
+                        <% } %>
+                        <button class="btn" type="submit"><% if (editing) { %>Update Room<% } else { %>Add Room<% } %></button>
+                    </form>
+                </div>
+            </div>
+            <div id="tabcontent4" data-tab="4" class="tabcontent">
+                <p>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury.</p>
+                <p> In English, Mars carries a name of the Roman god of war and is often referred to as the 'Red Planet'. The latter refers to the effect of the iron oxide prevalent on Mars' surface.</p>
+                <p>Mars is a terrestrial planet with a thin atmosphere.</p>
+                <p class="read-more-link"><a href="https://en.wikipedia.org/wiki/Mars" target="_blank">Learn more<span class="icon">➡️</span></a></p>
+            </div>
+        </div>
+        <section class="rooms-area "style="margin-top:200px;">
+            <div class="container">
+                
+                <div class="row justify-content-center">
+                    <% if (room.length > 0) { %>
+                        <% for (let rooms of room) { %>
+    
+                    <!-- Single Rooms Area -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms" style="display: flex; right:250px ;">
+                            <!-- Thumbnail -->
+                            <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/1.jpg); width: 300px ;  "></div>
+                            <!-- Price -->
+                            <p class="price-from" style="margin-left: 110px  ; ">From <%= rooms.price %>/night</p>
+                            <!-- Rooms Text -->
+                            <div class="rooms-text" style="width: 250px;">
+                                <div class="line"></div>
+                                <h4><%= rooms.title %></h4>
+                                <p><%= rooms.description %></p>
+    
+                            </div>
+                            <!-- Book Room -->
+                         
+                        </div>
+                        <div style="display: flex;">
+                            <a href="/admin/edit-rooms/<%= rooms.id %>?edit=true" class="book-room-btn btn palatin-btn"  style="margin-top: 50px;">Edit</a>
+                            <form action="/admin/delete-room" method="POST" >
+                                <input type="hidden" value="<%= rooms.id  %>" name="roomId">
+                                <button class="book-room-btn btn palatin-btn" type="submit">Delete</button>
+                            </form>
+                            </div>
+                    </div>
+    
+                    
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="dark-mode-switch">
+        <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-switch">
+            <span class="slider round"></span>
+        </label>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ---------------------- -->
+
+<div class="small-screen">
+    <div class="small-screen-content tabcontent">
+        <p>You're going to need a bigger display my friend.</p>
+        <p class="read-more-link"><a href="https://www.samsung.com/uk/monitors/monitor-c49j89-lc49j890dkuxen/" target="_blank">Learn more<span class="icon">➡️</span></a></p>
+    </div>
+</div>
+
+
+<script>
+    // DOM Elements
+const tabs = document.querySelectorAll('.tab')
+const tabContents = document.querySelectorAll('.tabcontent')
+const darkModeSwitch = document.querySelector('#dark-mode-switch')
+  
+// Functions
+const activateTab = tabnum => {
+    
+    tabs.forEach( tab => {
+      tab.classList.remove('active')
+    })
+    
+    tabContents.forEach( tabContent => {
+        tabContent.classList.remove('active')
+    })
+  
+    document.querySelector('#tab' + tabnum).classList.add('active')
+    document.querySelector('#tabcontent' + tabnum).classList.add('active')
+    localStorage.setItem('jstabs-opentab', JSON.stringify(tabnum))
+}
+
+// Event Listeners
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        activateTab(tab.dataset.tab)
+    })
+})
+
+darkModeSwitch.addEventListener('change', () => {
+    document.querySelector('body').classList.toggle('darkmode')
+    localStorage.setItem('jstabs-darkmode', JSON.stringify(!darkmode))
+})
+
+// Retrieve stored data
+let darkmode = JSON.parse(localStorage.getItem('jstabs-darkmode'))
+const opentab =  JSON.parse(localStorage.getItem('jstabs-opentab')) || '3'
+
+// and..... Action!
+if (darkmode === null) {
+    darkmode = window.matchMedia("(prefers-color-scheme: dark)").matches // match to OS theme
+}
+if (darkmode) {
+    document.querySelector('body').classList.add('darkmode')
+    document.querySelector('#dark-mode-switch').checked = 'checked'
+}
+activateTab(opentab)
+</script>
