@@ -158,7 +158,7 @@ exports.postMail = (req,res,next)=>{
 																		<li style="margin-bottom: 0; text-align: left;">Room : ${room}</li>
 																		<li style="margin-bottom: 0; text-align: left;">Guests : ${guests}</li>
 																		<li style="margin-bottom: 0; text-align: left;">Arrival Date : ${arrivalDate}</li>
-																		<li style="margin-bottom: 0; text-align: left;">Departue Date : ${departueDate}</li>
+																		<li style="margin-bottom: 0; text-align: left;">Departure Date : ${departureDate}</li>
 																		<li style="margin-bottom: 0; text-align: left;">Email : ${email}</li>
 																	</ul>
 																</div>
