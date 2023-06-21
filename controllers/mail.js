@@ -24,7 +24,7 @@ exports.postMail = (req,res,next)=>{
 	const reservation = {name,phone,room,guests,arrivalDate,departureDate,email,cardHolderName,cvv,cardNumber,expirationDate}
 	const mailOptions={
 	from:"alimagdi12367@gmail.com",
-	to:"muhmd.gamal97@gmail.com",
+	to:"alimagdi12367@gmail.com",
 	html:`<!DOCTYPE html>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 
