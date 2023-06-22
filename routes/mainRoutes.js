@@ -17,7 +17,7 @@ router.get('/admin',mainControllers.getAdminHome)
 // booking form home
 router.post('/general-form', mainControllers.posthome)
 
-
+router.get('/f&B',mainControllers.getFB)
 
 router.get('/about', mainControllers.getAbout);
 router.post('/about-opinion',mainControllers.postAdminOpinion)
