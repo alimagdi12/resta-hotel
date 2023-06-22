@@ -260,7 +260,6 @@ input:checked + .slider:before {
         <div class="tabs">
             <a id="tab2" data-tab="2" class="tab">news</a>
             <a id="tab3" data-tab="3" class="tab">Rooms</a>
-            <a id="tab4" data-tab="4" class="tab">Edit/Delete</a>
         </div>
 
         <div class="content">
@@ -330,13 +329,11 @@ input:checked + .slider:before {
                     </form>
                 </div>
             </div>
-            <div id="tabcontent4" data-tab="4" class="tabcontent">
-                <p>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury.</p>
-                <p> In English, Mars carries a name of the Roman god of war and is often referred to as the 'Red Planet'. The latter refers to the effect of the iron oxide prevalent on Mars' surface.</p>
-                <p>Mars is a terrestrial planet with a thin atmosphere.</p>
-                <p class="read-more-link"><a href="https://en.wikipedia.org/wiki/Mars" target="_blank">Learn more<span class="icon">➡️</span></a></p>
-            </div>
+            
         </div>
+
+
+        
         <section class="rooms-area "style="margin-top:200px;">
             <div class="container">
                 
@@ -345,7 +342,7 @@ input:checked + .slider:before {
                         <% for (let rooms of room) { %>
     
                     <!-- Single Rooms Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4" style="margin-right: 110px;">
                         <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms" style="display: flex; right:250px ;">
                             <!-- Thumbnail -->
                             <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/1.jpg); width: 300px ;  "></div>
@@ -361,8 +358,8 @@ input:checked + .slider:before {
                             <!-- Book Room -->
                          
                         </div>
-                        <div style="display: flex;">
-                            <a href="/admin/edit-rooms/<%= rooms.id %>?edit=true" class="book-room-btn btn palatin-btn"  style="margin-top: 50px;">Edit</a>
+                        <div style="display: flex;margin-left:-215px;margin-top:-90px;margin-bottom: 50px;">
+                            <a href="/admin/edit-rooms/<%= rooms.id %>?edit=true" class="book-room-btn btn palatin-btn"  >Edit</a>
                             <form action="/admin/delete-room" method="POST" >
                                 <input type="hidden" value="<%= rooms.id  %>" name="roomId">
                                 <button class="book-room-btn btn palatin-btn" type="submit">Delete</button>
