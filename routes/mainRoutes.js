@@ -54,5 +54,6 @@ router.post('/admin/edit-rooms',mainControllers.postEditRoom);
 
 router.post('/admin/delete-room',mainControllers.postDeleteRoom)
 
+router.get('/admin/rooms/',mainControllers.getRooms);
 
 module.exports = router;
