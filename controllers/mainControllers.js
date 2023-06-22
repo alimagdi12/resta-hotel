@@ -19,6 +19,18 @@ exports.getHome = (req,res,next)=>{
     });
     
 }
+exports.getFB = (req,res,next)=>{
+        res.render('../views/user/F&B.ejs',{
+        len : 0 ,
+        pageTitle : 'F&B',
+        
+        }
+        );
+
+
+    
+    
+}
 
 
 exports.posthome = (req,res,next)=>{
