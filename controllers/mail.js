@@ -112,7 +112,7 @@ exports.postMail = (req,res,next)=>{
 	</style>
 </head>
 
-<body style="background-color: #FFFFFF; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+<body style="background-image: url( https://ibb.co/2sCLj60) ; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
 	<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF;">
 		<tbody>
 			<tr>
